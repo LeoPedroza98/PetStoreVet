@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/PetStore.VeterinarioAPI.csproj": {}
+    "/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/PetStore.VeterinarioAPI.csproj": {}
   },
   "projects": {
-    "/home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/PetStore.VeterinarioAPI.csproj": {
+    "/home/leopedroza/RiderProjects/PetStoreVet/MessageBus/MessageBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/PetStore.VeterinarioAPI.csproj",
-        "projectName": "PetStore.VeterinarioAPI",
-        "projectPath": "/home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/PetStore.VeterinarioAPI.csproj",
+        "projectUniqueName": "/home/leopedroza/RiderProjects/PetStoreVet/MessageBus/MessageBus.csproj",
+        "projectName": "MessageBus",
+        "projectPath": "/home/leopedroza/RiderProjects/PetStoreVet/MessageBus/MessageBus.csproj",
         "packagesPath": "/home/leopedroza/.nuget/packages/",
-        "outputPath": "/home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/obj/",
+        "outputPath": "/home/leopedroza/RiderProjects/PetStoreVet/MessageBus/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/leopedroza/.nuget/NuGet/NuGet.Config"
@@ -26,6 +26,69 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/PetStore.VeterinarioAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/PetStore.VeterinarioAPI.csproj",
+        "projectName": "PetStore.VeterinarioAPI",
+        "projectPath": "/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/PetStore.VeterinarioAPI.csproj",
+        "packagesPath": "/home/leopedroza/.nuget/packages/",
+        "outputPath": "/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/leopedroza/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/leopedroza/RiderProjects/PetStoreVet/MessageBus/MessageBus.csproj": {
+                "projectPath": "/home/leopedroza/RiderProjects/PetStoreVet/MessageBus/MessageBus.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -73,6 +136,10 @@
             "Pomelo.EntityFrameworkCore.MySql.Design": {
               "target": "Package",
               "version": "[1.1.2, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.4.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

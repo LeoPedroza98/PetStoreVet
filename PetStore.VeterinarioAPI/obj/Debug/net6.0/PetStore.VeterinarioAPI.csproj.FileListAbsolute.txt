@@ -45,3 +45,6 @@
 /home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.pdb
 /home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.genruntimeconfig.cache
 /home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/obj/Debug/net6.0/ref/PetStore.VeterinarioAPI.dll
+/home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/bin/Debug/net6.0/RabbitMQ.Client.dll
+/home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/bin/Debug/net6.0/MessageBus.dll
+/home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/bin/Debug/net6.0/MessageBus.pdb

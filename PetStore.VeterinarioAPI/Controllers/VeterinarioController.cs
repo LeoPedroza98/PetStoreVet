@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PetStore.VeterinarioAPI.Data.DTOs;
 using PetStore.VeterinarioAPI.Repositories;
+using PetStore.VeterinarioAPI.Services;
 
 namespace PetStore.VeterinarioAPI.Controllers;
 
@@ -8,25 +9,25 @@ namespace PetStore.VeterinarioAPI.Controllers;
 [ApiController]
 public class VeterinarioController : Controller
 {
-    private IVeterinarioRepository _repository;
+    private IVeterinarioService _service;
     
-    public VeterinarioController(IVeterinarioRepository repository)
+    public VeterinarioController(IVeterinarioService service)
     {
-        _repository = repository ?? throw new
-            ArgumentNullException(nameof(repository));
+        _service = service ?? throw new
+            ArgumentNullException(nameof(service));
     }
     
     [HttpGet]
     public async Task<ActionResult<IEnumerable<VeterinarioDTO>>> FindAll()
     {
-        var products = await _repository.FindAll();
+        var products = await _service.FindAllVet();
         return Ok(products);
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<VeterinarioDTO>> FindById(long id)
     {
-        var product = await _repository.FindById(id);
+        var product = await _service.FindById(id);
         if (product == null) return NotFound();
         return Ok(product);
     }
@@ -35,7 +36,7 @@ public class VeterinarioController : Controller
     public async Task<ActionResult<VeterinarioDTO>> Create(VeterinarioDTO vet)
     {
         if (vet == null) return BadRequest();
-        var product = await _repository.Create(vet);
+        var product = await _service.Create(vet);
         return Ok(product);
     }
 
@@ -43,14 +44,14 @@ public class VeterinarioController : Controller
     public async Task<ActionResult<VeterinarioDTO>> Update(VeterinarioDTO vet)
     {
         if (vet == null) return BadRequest();
-        var product = await _repository.Update(vet);
+        var product = await _service.Update(vet);
         return Ok(product);
     }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(long id)
     {
-        var status = await _repository.Delete(id);
+        var status = await _service.Delete(id);
         if (!status) return BadRequest();
         return Ok(status);
     }

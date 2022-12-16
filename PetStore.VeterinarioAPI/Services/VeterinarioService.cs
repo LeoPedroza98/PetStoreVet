@@ -1,3 +1,5 @@
+using AutoMapper;
+using PetStore.VeterinarioAPI.Data.DTOs;
 using PetStore.VeterinarioAPI.Models.Entities;
 using PetStore.VeterinarioAPI.Repositories;
 
@@ -6,35 +8,53 @@ namespace PetStore.VeterinarioAPI.Services;
 public class VeterinarioService: IVeterinarioService
 {
     private readonly IVeterinarioRepository _repository;
+    private IMapper _mapper;
 
 
-    public VeterinarioService(IVeterinarioRepository repository)
+    public VeterinarioService(IVeterinarioRepository repository,IMapper mapper)
     {
         _repository = repository;
+        _mapper = mapper;
     }
 
     public async Task<IEnumerable<Veterinario>> FindAllVet()
     {
-        throw new NotImplementedException();
+        IEnumerable<Veterinario> veterinarios = await _repository.FindAll();
+        return _mapper.Map<IEnumerable<Veterinario>>(veterinarios);
     }
 
-    public Task<Veterinario> FindById(long id)
+    public async Task<VeterinarioDTO> FindById(long id)
     {
-        throw new NotImplementedException();
+        Veterinario vet = await _repository.FindById(id);
+        return _mapper.Map<VeterinarioDTO>(vet);
     }
 
-    public Task<Veterinario> Create(Veterinario vet)
+    public async Task<VeterinarioDTO> Create(VeterinarioDTO vet)
     {
-        throw new NotImplementedException();
+        Veterinario veterinario = _mapper.Map<Veterinario>(vet);
+        await _repository.Create(veterinario);
+        return _mapper.Map<VeterinarioDTO>(veterinario);
     }
 
-    public Task<Veterinario> Update(Veterinario vet)
+    public async Task<VeterinarioDTO> Update(VeterinarioDTO vet)
     {
-        throw new NotImplementedException();
+        Veterinario veterinario = _mapper.Map<Veterinario>(vet);
+        await _repository.Update(veterinario);
+        return _mapper.Map<VeterinarioDTO>(veterinario);
     }
 
-    public Task<bool> Delete(long id)
+    public async Task<bool> Delete(long id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Veterinario veterinario = await _repository.FindById(id);
+            if (veterinario == null) return false;
+            _repository.Delete(veterinario.Id);
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 }

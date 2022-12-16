@@ -18,34 +18,33 @@ public class VeterinarioRepository : IVeterinarioRepository
         _mapper = mapper;
     }
     
-    public async Task<IEnumerable<VeterinarioDTO>> FindAll()
+    public async Task<IEnumerable<Veterinario>> FindAll()
     {
         List<Veterinario> products = await _context.Veterinarios.ToListAsync();
-        return _mapper.Map<List<VeterinarioDTO>>(products);
+        return products;
     }
     
-    public async Task<VeterinarioDTO> FindById(long id)
+    public async Task<Veterinario> FindById(long id)
     {
-        Veterinario vet =
-            await _context.Veterinarios.Where(p => p.Id == id)
+        Veterinario vet = await _context.Veterinarios.Where(p => p.Id == id)
                 .FirstOrDefaultAsync();
-        return _mapper.Map<VeterinarioDTO>(vet);
+        return vet;
     }
     
-    public async Task<VeterinarioDTO> Create(VeterinarioDTO vet)
+    public async Task<Veterinario> Create(Veterinario vet)
     {
         Veterinario veterinario = _mapper.Map<Veterinario>(vet);
         _context.Veterinarios.Add(veterinario);
         await _context.SaveChangesAsync();
-        return _mapper.Map<VeterinarioDTO>(veterinario);
+        return veterinario;
     }
     
-    public async Task<VeterinarioDTO> Update(VeterinarioDTO vet)
+    public async Task<Veterinario> Update(Veterinario vet)
     {
         Veterinario veterinario = _mapper.Map<Veterinario>(vet);
         _context.Veterinarios.Update(veterinario);
         await _context.SaveChangesAsync();
-        return _mapper.Map<VeterinarioDTO>(veterinario);
+        return veterinario;
     }
     
     public async Task<bool> Delete(long id)

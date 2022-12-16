@@ -4,6 +4,7 @@ using Microsoft.OpenApi.Models;
 using PetStore.VeterinarioAPI.Data;
 using PetStore.VeterinarioAPI.Mapper;
 using PetStore.VeterinarioAPI.Repositories;
+using PetStore.VeterinarioAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
      
@@ -17,6 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddSingleton(mapper);
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     builder.Services.AddScoped<IVeterinarioRepository, VeterinarioRepository>();
+    builder.Services.AddScoped<IVeterinarioService, VeterinarioService>();
     
     builder.Services.AddControllersWithViews();
     builder.Services.AddSwaggerGen(c =>
