@@ -49,7 +49,7 @@ public class VeterinarioService: IVeterinarioService
         {
             Veterinario veterinario = await _repository.FindById(id);
             if (veterinario == null) return false;
-            _repository.Delete(veterinario.Id);
+            await _repository.Delete(veterinario.Id);
             return true;
         }
         catch (Exception)
