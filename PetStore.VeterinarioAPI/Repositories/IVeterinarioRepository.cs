@@ -3,11 +3,7 @@ using PetStore.VeterinarioAPI.Models.Entities;
 
 namespace PetStore.VeterinarioAPI.Repositories;
 
-public interface IVeterinarioRepository
+public interface IVeterinarioRepository : ICrudRepository<Veterinario>
 {
-    Task<IEnumerable<Veterinario>> FindAll();
-    Task<Veterinario> FindById(long id);
-    Task<Veterinario> Create(Veterinario vet);
-    Task<Veterinario> Update(Veterinario vet);
-    Task<bool> Delete(long id);
+    
 }

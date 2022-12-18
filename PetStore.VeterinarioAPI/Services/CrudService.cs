@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.JsonPatch;
 using PetStore.VeterinarioAPI.Models.Base;
 using PetStore.VeterinarioAPI.Repositories;
+using PetStore.VeterinarioAPI.Utils;
 
 namespace PetStore.VeterinarioAPI.Services;
 
@@ -49,8 +50,8 @@ public class CrudService<TEntity, TCrudRepository> : QueryService<TEntity, TCrud
     {
         var domain = string.IsNullOrEmpty(include) ? await GetTracking(id) : await GetTracking(id, include);
 
-        // if (domain == null)
-        //     throw new NotFoundException(MensagemHelper.RegistroNaoEncontrato);
+        if (domain == null)
+            throw new NotFoundException(MensagemHelper.RegistroNaoEncontrato);
 
         model.ApplyTo(domain);
 
