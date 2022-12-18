@@ -6,8 +6,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetStore.VeterinarioAPI", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{1CB728C6-00CD-4592-A6AF-37DAF524D56E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBus", "MessageBus\MessageBus.csproj", "{CED12D39-D702-4C5B-B7AF-B2494E505D88}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,13 +16,8 @@ Global
 		{7379F108-261A-4D74-8BE0-974B6284EAFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7379F108-261A-4D74-8BE0-974B6284EAFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7379F108-261A-4D74-8BE0-974B6284EAFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CED12D39-D702-4C5B-B7AF-B2494E505D88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CED12D39-D702-4C5B-B7AF-B2494E505D88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CED12D39-D702-4C5B-B7AF-B2494E505D88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CED12D39-D702-4C5B-B7AF-B2494E505D88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7379F108-261A-4D74-8BE0-974B6284EAFE} = {2C0183F5-8C60-453A-AD65-BA3E95EBA3AC}
-		{CED12D39-D702-4C5B-B7AF-B2494E505D88} = {1CB728C6-00CD-4592-A6AF-37DAF524D56E}
 	EndGlobalSection
 EndGlobal

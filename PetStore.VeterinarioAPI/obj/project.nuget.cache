@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WL4Mldy3N/5poiUsykkniq5zuX+PxixjswpOGIqNJIcNubvqU+Tm4W+WtZnJ5BUJc0LiSBMlMP39kej+TThHbg==",
+  "dgSpecHash": "WknaU5WEcppJyYk3omrLPVHLRsIkG3FqteacyigWkw/9ectHIj25tVNBJX1TRwpNFrrg4oD5ZG2sAjSCy/AisQ==",
   "success": true,
   "projectFilePath": "/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/PetStore.VeterinarioAPI.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/home/leopedroza/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "/home/leopedroza/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/leopedroza/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.8/microsoft.aspnetcore.authentication.jwtbearer.6.0.8.nupkg.sha512",
+    "/home/leopedroza/.nuget/packages/microsoft.aspnetcore.jsonpatch/6.0.2/microsoft.aspnetcore.jsonpatch.6.0.2.nupkg.sha512",
     "/home/leopedroza/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/leopedroza/.nuget/packages/microsoft.entityframeworkcore/6.0.8/microsoft.entityframeworkcore.6.0.8.nupkg.sha512",
     "/home/leopedroza/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.8/microsoft.entityframeworkcore.abstractions.6.0.8.nupkg.sha512",
@@ -38,6 +39,7 @@
     "/home/leopedroza/.nuget/packages/microsoft.win32.primitives/4.3.0/microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "/home/leopedroza/.nuget/packages/mysqlconnector/2.1.2/mysqlconnector.2.1.2.nupkg.sha512",
     "/home/leopedroza/.nuget/packages/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg.sha512",
+    "/home/leopedroza/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
     "/home/leopedroza/.nuget/packages/pomelo.entityframeworkcore.mysql/6.0.2/pomelo.entityframeworkcore.mysql.6.0.2.nupkg.sha512",
     "/home/leopedroza/.nuget/packages/pomelo.entityframeworkcore.mysql.design/1.1.2/pomelo.entityframeworkcore.mysql.design.1.1.2.nupkg.sha512",
     "/home/leopedroza/.nuget/packages/rabbitmq.client/6.4.0/rabbitmq.client.6.4.0.nupkg.sha512",
