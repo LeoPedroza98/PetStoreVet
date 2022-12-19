@@ -4,6 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -22,6 +23,8 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
@@ -38,6 +41,7 @@
       <Compile Remove="Controllers\WeatherForecastController.cs" />
       <Compile Remove="WeatherForecast.cs" />
       <Compile Remove="RabbitMQ\**" />
+      <Compile Remove="Data\DTOs\AlterarSenhaDTO.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -53,10 +57,14 @@
     <ItemGroup>
       <Content Remove="Repositories\Shared\**" />
       <Content Remove="RabbitMQ\**" />
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Migrations" />
+      <Folder Include="prod" />
     </ItemGroup>
     
 

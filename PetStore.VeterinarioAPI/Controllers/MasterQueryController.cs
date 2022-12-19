@@ -7,6 +7,8 @@ using PetStore.VeterinarioAPI.Utils;
 
 namespace PetStore.VeterinarioAPI.Controllers;
 
+
+[Authorize]
 public class MasterQueryController<TEntity> : MasterBaseController where TEntity : class, IEntity
 {
     protected readonly ILogger<MasterQueryController<TEntity>> _logger;

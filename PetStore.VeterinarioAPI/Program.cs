@@ -1,21 +1,21 @@
 using AutoMapper;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using PetStore.VeterinarioAPI.Data;
 using PetStore.VeterinarioAPI.Extensions;
 using PetStore.VeterinarioAPI.Mapper;
-using PetStore.VeterinarioAPI.Repositories;
-using PetStore.VeterinarioAPI.Services;
+using PetStore.VeterinarioAPI.Models.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 var connection = builder.Configuration["MySqlConnection:MysqlConnectionString"];
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0, 25))));
+    options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0, 25)))
+    );
 
 
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
@@ -44,6 +44,7 @@ builder.Services.AddCors(o => o.AddPolicy("CorsLibera", builder =>
 
 builder.Services.AddInjections();
 builder.Services.AddODataQueryFilter();
+builder.Services.AddJwt(builder.Configuration);
 
 var app = builder.Build();
 var scope = app.Services.CreateScope();
@@ -59,8 +60,6 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-// var dbInitializer = scope.ServiceProvider.GetService<IDbInitializer>();
-
 // Configure the HTTP request pipeline.
 UpdateDatabase(app);
 
@@ -70,14 +69,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseCors("CorsLibera");
-// app.UseIdentityServer();
 
 app.UseAuthorization();
 
-
-// dbInitializer.Initialize();
-
 app.MapControllers();
+app.UseAuthentication();
 
 app.Run();
 
@@ -88,6 +84,17 @@ void UpdateDatabase(IApplicationBuilder app)
         using (var context = serviceScope.ServiceProvider.GetService<AppDbContext>())
         {
             context.Database.Migrate();
+            if (!context.Usuarios.Any())
+            {
+                context.Usuarios.Add(new Usuario()
+                {
+                    Login = "Master",
+                    Senha = "AQAAAAEAACcQAAAAEANRCJM8tYz2tD2JeiByfFLTPLGrKjo5CdndcUAKVrSn9Uek59ymlGz4qXdKj89xUQ==",
+                    PerfilId = PerfilUsuario.Master.Id,
+                    Nome = "Master"
+                });
+                context.SaveChanges();
+            }
         }
     }
 }
