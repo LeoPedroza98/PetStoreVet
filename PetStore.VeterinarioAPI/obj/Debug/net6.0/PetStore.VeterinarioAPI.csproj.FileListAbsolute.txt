@@ -48,13 +48,6 @@
 /home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/bin/Debug/net6.0/RabbitMQ.Client.dll
 /home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/bin/Debug/net6.0/MessageBus.dll
 /home/leopedroza/RiderProjects/PetStore/PetStore.VeterinarioAPI/bin/Debug/net6.0/MessageBus.pdb
-/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.csproj.AssemblyReference.cache
-/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.GeneratedMSBuildEditorConfig.editorconfig
-/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.AssemblyInfoInputs.cache
-/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.AssemblyInfo.cs
-/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.csproj.CoreCompileInputs.cache
-/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.MvcApplicationPartsAssemblyInfo.cs
-/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.MvcApplicationPartsAssemblyInfo.cache
 /home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/bin/Debug/net6.0/appsettings.Development.json
 /home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/bin/Debug/net6.0/appsettings.json
 /home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/bin/Debug/net6.0/PetStore.VeterinarioAPI
@@ -97,6 +90,13 @@
 /home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.csproj.AssemblyReference.cache
+/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.GeneratedMSBuildEditorConfig.editorconfig
+/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.AssemblyInfoInputs.cache
+/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.AssemblyInfo.cs
+/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.csproj.CoreCompileInputs.cache
+/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.MvcApplicationPartsAssemblyInfo.cs
+/home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/PetStore.VeterinarioAPI.MvcApplicationPartsAssemblyInfo.cache
 /home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/staticwebassets/msbuild.PetStore.VeterinarioAPI.Microsoft.AspNetCore.StaticWebAssets.props
 /home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/staticwebassets/msbuild.build.PetStore.VeterinarioAPI.props
 /home/leopedroza/RiderProjects/PetStoreVet/PetStore.VeterinarioAPI/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.PetStore.VeterinarioAPI.props

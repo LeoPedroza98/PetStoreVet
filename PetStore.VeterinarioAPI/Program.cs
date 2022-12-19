@@ -1,69 +1,93 @@
 using AutoMapper;
+using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using PetStore.VeterinarioAPI.Data;
+using PetStore.VeterinarioAPI.Extensions;
 using PetStore.VeterinarioAPI.Mapper;
 using PetStore.VeterinarioAPI.Repositories;
 using PetStore.VeterinarioAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-     
-    // Add services to the container.
-    var connection = builder.Configuration["MySqlConnection:MysqlConnectionString"];
-     
-    builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0, 25))));
+
+// Add services to the container.
+var connection = builder.Configuration["MySqlConnection:MysqlConnectionString"];
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0, 25))));
 
 
-    IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
-    builder.Services.AddSingleton(mapper);
-    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-    builder.Services.AddScoped<IVeterinarioRepository, VeterinarioRepository>();
-    builder.Services.AddScoped<IVeterinarioService, VeterinarioService>();
-    
-    builder.Services.AddControllersWithViews();
-    builder.Services.AddSwaggerGen(c =>
+IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddControllers(mvc => mvc.EnableEndpointRouting = false)
+    .AddNewtonsoftJson(options =>
     {
-        c.SwaggerDoc("v1", new OpenApiInfo { Title = "PetStore", Version = "v1" });
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+        options.UseCamelCasing(true);
     });
 
-    
-     
-    var app = builder.Build();
-    var scope = app.Services.CreateScope();
-    
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
+builder.Services.AddCors(o => o.AddPolicy("CorsLibera", builder =>
+{
+    builder
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+}));
 
-        app.UseSwaggerUI(options =>
-        {
-            options.SwaggerEndpoint("./swagger/v1/swagger.json", "PetStore");
-            options.RoutePrefix = string.Empty;
-        });
-    }
-     
-    // var dbInitializer = scope.ServiceProvider.GetService<IDbInitializer>();
-     
-    // Configure the HTTP request pipeline.
-    if (!app.Environment.IsDevelopment())
-    {
-        app.UseExceptionHandler("/Home/Error");
-    }
-    app.UseHttpsRedirection();
-     
-    app.UseStaticFiles();
-     
-    app.UseRouting();
+builder.Services.AddInjections();
+builder.Services.AddODataQueryFilter();
 
+var app = builder.Build();
+var scope = app.Services.CreateScope();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("./swagger/v1/swagger.json", "PetStore");
+        options.RoutePrefix = string.Empty;
+    });
+}
+
+// var dbInitializer = scope.ServiceProvider.GetService<IDbInitializer>();
+
+// Configure the HTTP request pipeline.
+UpdateDatabase(app);
+
+app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
+app.UseRouting();
+app.UseCors("CorsLibera");
 // app.UseIdentityServer();
-     
-    app.UseAuthorization();
-     
-     
-    // dbInitializer.Initialize();
-     
-    app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-     
-    app.Run();
+
+app.UseAuthorization();
+
+
+// dbInitializer.Initialize();
+
+app.MapControllers();
+
+app.Run();
+
+void UpdateDatabase(IApplicationBuilder app)
+{
+    using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+    {
+        using (var context = serviceScope.ServiceProvider.GetService<AppDbContext>())
+        {
+            context.Database.Migrate();
+        }
+    }
+}
