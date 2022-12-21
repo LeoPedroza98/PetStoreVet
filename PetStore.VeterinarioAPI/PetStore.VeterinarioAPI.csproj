@@ -64,7 +64,6 @@
 
     <ItemGroup>
       <Folder Include="Migrations" />
-      <Folder Include="prod" />
     </ItemGroup>
     
 

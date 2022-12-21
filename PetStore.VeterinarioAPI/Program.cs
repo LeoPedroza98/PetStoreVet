@@ -44,7 +44,6 @@ builder.Services.AddCors(o => o.AddPolicy("CorsLibera", builder =>
 
 builder.Services.AddInjections();
 builder.Services.AddODataQueryFilter();
-builder.Services.AddJwt(builder.Configuration);
 
 var app = builder.Build();
 var scope = app.Services.CreateScope();
@@ -84,17 +83,6 @@ void UpdateDatabase(IApplicationBuilder app)
         using (var context = serviceScope.ServiceProvider.GetService<AppDbContext>())
         {
             context.Database.Migrate();
-            if (!context.Usuarios.Any())
-            {
-                context.Usuarios.Add(new Usuario()
-                {
-                    Login = "Master",
-                    Senha = "AQAAAAEAACcQAAAAEANRCJM8tYz2tD2JeiByfFLTPLGrKjo5CdndcUAKVrSn9Uek59ymlGz4qXdKj89xUQ==",
-                    PerfilId = PerfilUsuario.Master.Id,
-                    Nome = "Master"
-                });
-                context.SaveChanges();
-            }
         }
     }
 }
