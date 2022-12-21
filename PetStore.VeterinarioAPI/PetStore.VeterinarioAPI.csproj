@@ -36,28 +36,8 @@
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
     </ItemGroup>
-
+    
     <ItemGroup>
-      <Compile Remove="Controllers\WeatherForecastController.cs" />
-      <Compile Remove="WeatherForecast.cs" />
-      <Compile Remove="RabbitMQ\**" />
-      <Compile Remove="Data\DTOs\AlterarSenhaDTO.cs" />
-      <Compile Include="Repositories\Shared\CrudRepository.cs" />
-      <Compile Include="Repositories\Shared\ICrudRepository.cs" />
-      <Compile Include="Repositories\Shared\IQueryRepository.cs" />
-      <Compile Include="Repositories\Shared\QueryRepository.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Remove="RabbitMQ\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="RabbitMQ\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Remove="RabbitMQ\**" />
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>

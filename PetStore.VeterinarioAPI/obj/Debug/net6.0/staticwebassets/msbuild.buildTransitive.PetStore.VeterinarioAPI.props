@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/PetStore.VeterinarioAPI.props" />
+</Project>
