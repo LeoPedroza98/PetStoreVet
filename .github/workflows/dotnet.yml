@@ -26,3 +26,13 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      
+    - name: Log in to DockerHub
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build Container Image
+      run: docker build . -t leopedroza98/petstorevet:$(date +%y%m%d) -t leopedroza98/petstorevet:latest
+    - name: Push Image to DockerHub
+      run: docker push -a leopedroza98/petstorevet
