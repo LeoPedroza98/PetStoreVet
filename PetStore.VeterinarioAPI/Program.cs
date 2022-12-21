@@ -44,6 +44,7 @@ builder.Services.AddCors(o => o.AddPolicy("CorsLibera", builder =>
 
 builder.Services.AddInjections();
 builder.Services.AddODataQueryFilter();
+builder.Configuration.AddEnvironmentVariables(prefix: "MySqlConnection:MysqlConnectionString");
 
 var app = builder.Build();
 var scope = app.Services.CreateScope();
@@ -73,6 +74,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.UseAuthentication();
+
 
 app.Run();
 
