@@ -63,7 +63,6 @@ if (app.Environment.IsDevelopment())
 // Configure the HTTP request pipeline.
 UpdateDatabase(app);
 
-app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
