@@ -34,6 +34,6 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build docker image
       run: |
-          docker build . -t leopedroza98/petstorevet:$(date +%y%m%d) -f PetStore.VeterinarioAPI/Dockerfile
+          docker build . -t leopedroza98/petstorevet:$(date +%y%m%d).$(git rev-parse HEAD | head -c 7) -f PetStore.VeterinarioAPI/Dockerfile
     - name: Push Image to DockerHub
       run: docker push -a leopedroza98/petstorevet
