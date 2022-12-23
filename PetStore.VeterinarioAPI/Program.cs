@@ -1,6 +1,10 @@
+using System;
 using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using PetStore.VeterinarioAPI.Data;
 using PetStore.VeterinarioAPI.Extensions;
@@ -49,16 +53,14 @@ builder.Configuration.AddEnvironmentVariables(prefix: "MySqlConnection:MysqlConn
 var app = builder.Build();
 var scope = app.Services.CreateScope();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
+app.UseSwagger();
 
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("./swagger/v1/swagger.json", "PetStore");
-        options.RoutePrefix = string.Empty;
-    });
-}
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("./swagger/v1/swagger.json", "PetStore");
+    options.RoutePrefix = string.Empty;
+});
+
 
 // Configure the HTTP request pipeline.
 UpdateDatabase(app);
