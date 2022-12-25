@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -7,7 +8,7 @@ using PetStore.VeterinarioAPI.Utils;
 
 namespace PetStore.VeterinarioAPI.Controllers;
 
-
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class MasterQueryController<TEntity> : MasterBaseController where TEntity : class, IEntity
 {
     protected readonly ILogger<MasterQueryController<TEntity>> _logger;

@@ -1,27 +1,28 @@
 using Microsoft.EntityFrameworkCore;
 using PetStore.VeterinarioAPI.Data.DTOs;
 using PetStore.VeterinarioAPI.Extensions;
+using PetStore.VeterinarioAPI.Identity;
 using PetStore.VeterinarioAPI.Models.Entities;
 using Pomelo.EntityFrameworkCore;
 
 namespace PetStore.VeterinarioAPI.Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext : AppDbContextBase<Usuario,Role, string>
 {
-    protected AppDbContext()
+    private readonly ISessaoUsuario _sessaoUsuario;
+    public AppDbContext(DbContextOptions options, ISessaoUsuario sessaoUsuario) : base(options, sessaoUsuario)
     {
+        _sessaoUsuario = sessaoUsuario;
     }
 
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-    {
-    }
-    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
     }
 
 
     #region DbSets
     public DbSet<Veterinario> Veterinarios { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
     #endregion
 }

@@ -12,6 +12,8 @@ public class MappingConfig
         {
             config.CreateMap<VeterinarioDTO, Veterinario>();
             config.CreateMap<Veterinario, VeterinarioDTO>();
+            config.CreateMap<Usuario, UsuarioDTO>();
+            config.CreateMap<Usuario, LoginDTO>();
         });
         return mappingConfig;
     }
