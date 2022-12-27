@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "543c665e-f439-4c6f-b6e0-0a703f0323d7",
+		"name": "PetStoreVet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9848203"
+	},
+	"item": [
+		{
+			"name": "GetVet",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJlYzNjZThhNy0wMjgyLTRlMGEtYWFlZi03YTFkN2I3ZmJhMTgiLCJsZW8iXSwianRpIjoiOGZlZGI1MmM0MDJlNDQ1ZjkyNGExNGM2ZDUwYjUzYzciLCJ1c2VyaWQiOiJlYzNjZThhNy0wMjgyLTRlMGEtYWFlZi03YTFkN2I3ZmJhMTgiLCJuYW1lIjoiTGVvbmFyZG8iLCJ1c2VybmFtZSI6ImxlbyIsIm5iZiI6MTY3MjA5NzQ2MiwiZXhwIjoxNjcyMTc3NDYyLCJpYXQiOjE2NzIwOTc0NjIsImlzcyI6Ik1lZFN5c3RlbUNsb3VkVXNzZXIiLCJhdWQiOiJNZWRTeXN0ZW1DbG91ZEF1ZGllbmNlIn0.lWJDualRXBuAjwUdlhmbR7zGXDSQIroOoaEx3Q7LRqM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7152/api/Veterinario/listar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7152",
+					"path": [
+						"api",
+						"Veterinario",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostVet",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJlYzNjZThhNy0wMjgyLTRlMGEtYWFlZi03YTFkN2I3ZmJhMTgiLCJsZW8iXSwianRpIjoiOGZlZGI1MmM0MDJlNDQ1ZjkyNGExNGM2ZDUwYjUzYzciLCJ1c2VyaWQiOiJlYzNjZThhNy0wMjgyLTRlMGEtYWFlZi03YTFkN2I3ZmJhMTgiLCJuYW1lIjoiTGVvbmFyZG8iLCJ1c2VybmFtZSI6ImxlbyIsIm5iZiI6MTY3MjA5NzQ2MiwiZXhwIjoxNjcyMTc3NDYyLCJpYXQiOjE2NzIwOTc0NjIsImlzcyI6Ik1lZFN5c3RlbUNsb3VkVXNzZXIiLCJhdWQiOiJNZWRTeXN0ZW1DbG91ZEF1ZGllbmNlIn0.lWJDualRXBuAjwUdlhmbR7zGXDSQIroOoaEx3Q7LRqM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Leonardo\",\n  \"sobrenome\": \"Pedroza\",\n  \"crmv\": \"32131312313\",\n  \"especialidadeId\": 10,\n  \"endereco\": {\n    \"logradouro\": \"Rua Gustavo Gama\",\n    \"numero\": \"166\",\n    \"complemento\": \"APT 102 FUNDOS\",\n    \"cep\": \"20735270\",\n    \"bairro\": \"Méier\",\n    \"municipio\": \"Rio de Janeiro\"\n  },\n  \"contato\": {\n    \"nome\": \"Residencial\",\n    \"telefone\": \"219673243242\",\n    \"celular\": \"2132141242141\",\n    \"email\": \"leonardo@email.com\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7152/api/Veterinario",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7152",
+					"path": [
+						"api",
+						"Veterinario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7152/api/Veterinario/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7152",
+					"path": [
+						"api",
+						"Veterinario",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteVet",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7152/api/Veterinario/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7152",
+					"path": [
+						"api",
+						"Veterinario",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CriarUsuarioPetStoreVet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"login\": \"teste@gmail.com.br\",\n    \"senha\": \"123@mudar\",\n    \"nome\": \"Teste\",\n    \"perfil\":1\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7152/api/Usuario/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7152",
+					"path": [
+						"api",
+						"Usuario",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostUsuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7152/Usuario",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7152",
+					"path": [
+						"Usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7152/Login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7152",
+					"path": [
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEspecialidade",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7152/Especialidade/listar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7152",
+					"path": [
+						"Especialidade",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllEspecialidade",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7152/Especialidade",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7152",
+					"path": [
+						"Especialidade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEspecialidadeById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7152/Especialidade/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7152",
+					"path": [
+						"Especialidade",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
