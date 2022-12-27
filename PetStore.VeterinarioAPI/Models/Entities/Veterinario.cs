@@ -22,12 +22,8 @@ public class Veterinario : IEntity
     [Required]
     public string CRMV { get; set; }
     [Column("Especialidade")]
-    [Required]
-    [StringLength(150)]
-    public string Especialidade { get; set; }
-    [Column("Telefone")]
-    public string Telefone { get; set; }
-    [Column("Email")]
-    public string Email { get; set; }
-    
+    public long EspecialidadeId { get; set; }
+    public Especialidade? Especialidade { get; private set; }
+    public Endereco Endereco { get; set; }
+    public Contato Contato { get; set; }
 }

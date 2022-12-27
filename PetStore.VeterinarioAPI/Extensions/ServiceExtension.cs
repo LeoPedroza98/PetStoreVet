@@ -1,10 +1,4 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.IdentityModel.Tokens;
 using PetStore.VeterinarioAPI.Identity;
 using PetStore.VeterinarioAPI.Repositories;
 using PetStore.VeterinarioAPI.Services;
@@ -24,6 +18,8 @@ public static class ServiceExtension
         services.AddScoped<ISessaoUsuario, SessaoUsuario>();
         services.AddSingleton<TokenMemoryRepository>();
         services.AddTransient<TokenValidationMiddleware>();
+        services.AddScoped<IEspecialidadeRepository, EspecialidadeRepository>();
+        services.AddScoped<IEspecialidadeService, EspecialidadeService>();
     }
     
 }

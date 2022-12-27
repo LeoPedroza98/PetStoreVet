@@ -17,6 +17,7 @@ public class AppDbContext : AppDbContextBase<Usuario,Role, string>
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Seed();
         base.OnModelCreating(modelBuilder);
     }
 
@@ -24,5 +25,6 @@ public class AppDbContext : AppDbContextBase<Usuario,Role, string>
     #region DbSets
     public DbSet<Veterinario> Veterinarios { get; set; }
     public DbSet<Usuario> Usuarios { get; set; }
+    public DbSet<Especialidade> Especialidades { get; set; }
     #endregion
 }
